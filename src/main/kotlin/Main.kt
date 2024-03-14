@@ -65,6 +65,8 @@ fun main() {
     registro.historialUsuario(usuario)
     registro.historialLibro(libro4)
     GestionConsola.mostrarInfo("${registro.historialPrestamos}")
+
+
 /*
 * Crear instancias de varios usuarios y realizar operaciones de préstamo y devolución utilizando el sistema modificado.
 Utilizar la clase GestorBiblioteca, que hará uso de RegistroPrestamos, para realizar las operaciones de prestamos y devolución y mostrar el historial de préstamos y devoluciones.

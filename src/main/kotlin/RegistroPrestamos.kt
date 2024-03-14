@@ -1,8 +1,5 @@
 package org.pebiblioteca
-/*
-Consultar el historial de préstamos de un libro específico.
-Consultar el historial de préstamos de un usuario específico.
-*/
+
 class RegistroPrestamos {
     val registroPrestamosActuales = mutableListOf<Libro>() //lista de libros NO disponibles los que se han prestado
     val historialPrestamos = mutableMapOf<String, MutableList<Libro>>() //Historial de los prestamos

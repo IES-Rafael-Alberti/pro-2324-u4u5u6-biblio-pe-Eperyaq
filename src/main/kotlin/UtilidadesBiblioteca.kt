@@ -4,6 +4,9 @@ import java.util.UUID;
 class UtilidadesBiblioteca {
 
     companion object{
+        /**
+         * Genera un ID random
+         */
         fun generarIdRandom():String{
             val myUuid = UUID.randomUUID()//Genera un Id random
             val myUuidString = myUuid.toString()//Lo pasa a String
