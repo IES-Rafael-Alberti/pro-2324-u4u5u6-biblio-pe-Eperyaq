@@ -3,8 +3,6 @@ package org.pebiblioteca
 import java.util.UUID;
 class UtilidadesBiblioteca {
 
-
-    // Random UUID generada
     companion object{
         fun generarIdRandom():String{
             val myUuid = UUID.randomUUID()//Genera un Id random

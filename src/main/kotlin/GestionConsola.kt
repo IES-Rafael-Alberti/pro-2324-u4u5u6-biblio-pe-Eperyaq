@@ -60,6 +60,10 @@ object GestionConsola {
         return opcion
     }
 
+    /**
+     * Muestra opciones para dejar que el usuario decida que hacer
+     * @param gestorBiblioteca Lugar donde se guardan las preguntas
+     */
     fun mostrarLibros(gestorBiblioteca: GestorBiblioteca){
         mostrarInfo("Que libros quieres mostrar? \n 1. Todos los libros que hay. \n 2.Los libros disponibles. \n 3.Los libros no disponibles")
         val opcion = opciones(3)
