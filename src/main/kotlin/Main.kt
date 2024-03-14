@@ -44,7 +44,7 @@ fun main() {
     gestor.registrarPrestamo(libro1)
     GestionConsola.mostrarInfo("\n")
 
-    //hacemos las devoluciones con la ultima devolucion erroneae
+    //hacemos las devoluciones con la ultima devolucion erronea
     gestor.devolverLibro(libro1)
     gestor.devolverLibro(libro2)
     gestor.devolverLibro(libro1)
