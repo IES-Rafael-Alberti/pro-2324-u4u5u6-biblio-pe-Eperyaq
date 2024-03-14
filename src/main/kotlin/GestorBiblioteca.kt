@@ -31,7 +31,9 @@ class GestorBiblioteca(listaLibro:List<Libro>) {
      */
     fun consultarLibro(libro: Libro):Boolean = libro in catalogoLibros //Si el libro está en el catalogo da true si no esta, false
 
-
+    /**
+     * Comprueba los libros disponibles, si hay te los muestra, si no, te muestra un mensaje de que no hay libros
+     */
     fun librosDisponibles(){
         if (catalogoLibros.size == 0){
             GestionConsola.mostrarInfo("No hay libros disponibles")
@@ -40,6 +42,10 @@ class GestorBiblioteca(listaLibro:List<Libro>) {
         GestionConsola.mostrarInfo("${catalogoLibros}")
         }
     }
+
+    /**
+     * Comprueba los libros NO disponibles y si hay, los muestra, si no, te muestra un mensaje diciendo que no hay libros
+     */
     fun librosNoDisponibles(){
         if (registroPrestamos.size == 0){
             GestionConsola.mostrarInfo("No hay libros No disponibles")
@@ -48,6 +54,10 @@ class GestorBiblioteca(listaLibro:List<Libro>) {
         GestionConsola.mostrarInfo("${registroPrestamos}")
         }
     }
+
+    /**
+     * Muestra todos los libros que hay en la biblioteca
+     */
     fun mostrarTodos(){
 
         GestionConsola.mostrarInfo("Mostrando todos los libros...")

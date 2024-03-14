@@ -1,6 +1,6 @@
 package org.pebiblioteca
 
-data class Libro(var id:String, private val autor:String, private val anioPublicacion:Int, private val tematica:String, private var estado:String = "Disponible") {
+data class Libro(var id:String, private val autor:String, private val anioPublicacion:Int, private val tematica:String, var estado:String = "Disponible") {
 
     // Innit que comprueba que las entradas de la dataclass no sean ni nulas ni vacias
     init {

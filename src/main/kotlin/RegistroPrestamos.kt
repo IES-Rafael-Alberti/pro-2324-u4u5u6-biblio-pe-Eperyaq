@@ -1,18 +1,11 @@
 package org.pebiblioteca
 /*
-Clase RegistroPrestamos: Ten en cuenta que tienes que refactorizar, porque posiblemente ya tengas algo para registrar los prestamos.
-Propiedades:
-Mantendrá los registros de los prestamos actuales.
-Además, mantendra un historial de todos los préstamos realizados.
-Métodos:
-Registrar un préstamo.
-Devolver un libro.
 Consultar el historial de préstamos de un libro específico.
 Consultar el historial de préstamos de un usuario específico.
 */
 class RegistroPrestamos {
-    val registroPrestamosActuales = mutableListOf<Libro>() //lista de libros NO disponibles
-    val historialPrestamos = mutableListOf<Libro>() //Historial de los prestamos
+    val registroPrestamosActuales = mutableListOf<Libro>() //lista de libros NO disponibles los que se han prestado
+    val historialPrestamos = mutableMapOf<String, MutableList<Libro>>() //Historial de los prestamos
 
 
 
@@ -33,16 +26,37 @@ class RegistroPrestamos {
     }
 
 
-
-    fun devolverLibro(libro: Libro){
+    /**
+     * Devuelves un libro
+     * @param libro Libro a devolver
+     * @param gestor Gestor necesario para comprobar el libro
+     */
+    fun devolverLibro(libro: Libro,gestor: GestorBiblioteca){
         //si el libro NO esta en el catalogo lo devuelve y por tanto cambia el valor a disponible
         //Se borra de la lista de registros y se añade a la de catalogo de nuevo
-        if (!consultarLibro(libro)){
-            libro.mostrarEstado(libro) == "Disponible"
+        if (libro in registroPrestamosActuales){
+            libro.estado= "Disponible"
             registroPrestamosActuales.remove(libro)
+            GestionConsola.mostrarInfo("Libro Devuelto con éxito")
         }else{
             GestionConsola.mostrarInfo("El libro ya estaba disponible")
         }
+    }
+
+    /**
+     * funcion que introduce datos dentro de la lista del historial
+     * @param usuario usuario al que se le va a mirar el historial
+     */
+    fun historialUsuario(usuario: Usuario){
+        historialPrestamos[usuario.id] = usuario.listaLibrosPrestados
+    }
+    /**
+     * funcion que introduce datos dentro de la lista del historial
+     * @param libro Libro al que se le va a mirar el historial
+     * @param gestor Gestor necesario para mirar la lista de los libros
+     */
+    fun historialLibro(libro: Libro){
+        historialPrestamos[libro.id] = registroPrestamosActuales
     }
 
 }
