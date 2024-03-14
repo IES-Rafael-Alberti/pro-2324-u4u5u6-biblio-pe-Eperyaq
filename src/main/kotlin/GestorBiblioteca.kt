@@ -25,9 +25,13 @@ class GestorBiblioteca(listaLibro:List<Libro>) {
         GestionConsola.mostrarInfo("Libro eliminiado correctamente")
     }
 
+    /**
+     * Compruebas si un libro está en el catalogo
+     * @param libro libro que se está consultando si esta
+     */
+    fun consultarLibro(libro: Libro):Boolean = libro in catalogoLibros //Si el libro está en el catalogo da true si no esta, false
 
 
-    //Retornar los libros en función de su estado (todos, disponibles y prestados).
     fun librosDisponibles(){
         if (catalogoLibros.size == 0){
             GestionConsola.mostrarInfo("No hay libros disponibles")

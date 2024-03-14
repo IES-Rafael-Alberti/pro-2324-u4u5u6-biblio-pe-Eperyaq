@@ -11,25 +11,21 @@ Consultar el historial de préstamos de un libro específico.
 Consultar el historial de préstamos de un usuario específico.
 */
 class RegistroPrestamos {
+    val registroPrestamosActuales = mutableListOf<Libro>() //lista de libros NO disponibles
+    val historialPrestamos = mutableListOf<Libro>() //Historial de los prestamos
 
-    /**
-     * Compruebas si un libro está en el catalogo
-     * @param libro libro que se está consultando si esta
-     */
-    fun consultarLibro(libro: Libro):Boolean = libro in catalogoLibros //Si el libro está en el catalogo da true si no esta, false
+
 
     /**
      * Realizas un prestamo de un libro y cambias el estado de este
      * @param libro libro que se va a prestar
      */
-    fun registrarPrestamo(libro: Libro){
+    fun registrarPrestamo(libro: Libro, gestor:GestorBiblioteca){
         //Si el libro está en el catalogo se cambia el valor a no disponible
-        //Se borra de la lista de catalogos y se mete en la lista de registros todavia no
-        if (consultarLibro(libro)){
+        if (gestor.consultarLibro(libro)){
             libro.mostrarEstado(libro) == "No Disponible"
 
-            catalogoLibros.remove(libro)
-            registroPrestamos.add(libro)
+            registroPrestamosActuales.add(libro)
 
         }else{
             GestionConsola.mostrarInfo("El libro no está disponible")
@@ -43,8 +39,7 @@ class RegistroPrestamos {
         //Se borra de la lista de registros y se añade a la de catalogo de nuevo
         if (!consultarLibro(libro)){
             libro.mostrarEstado(libro) == "Disponible"
-            registroPrestamos.remove(libro)
-            catalogoLibros.add(libro)
+            registroPrestamosActuales.remove(libro)
         }else{
             GestionConsola.mostrarInfo("El libro ya estaba disponible")
         }
