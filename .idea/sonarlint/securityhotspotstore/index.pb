@@ -27,3 +27,5 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 Å
 Q.idea/sonarlint/securityhotspotstore/9/c/9cd88d93e97b0268aa8a42346d2f4931c296b5f6,5\c\5c1d21101372dc4e36fd41740d9ed9ec9f979fdc
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
